@@ -7,25 +7,17 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="path/to/favicon.ico">
 </head>
-<body>
+<body class="dark-mode">
   <div class="app">
-    <!-- Loading Screen -->
-    <div id="loadingScreen" class="loading-screen">
-      <p>Loading...</p>
-    </div>
-
-    <!-- Header with Theme Toggle and Menu Icon -->
+    <!-- Full-Screen Chat Interface -->
     <header>
       <h1>Chat with Selim</h1>
-      <div class="header-buttons">
-        <button id="menuToggle" class="menu-toggle">☰</button>
-        <button id="themeToggle" class="theme-toggle">🌙</button>
-      </div>
+      <button id="menuToggle" class="menu-toggle">☰</button>
     </header>
 
     <!-- Slide-out Emotion Panel -->
     <div id="emotionPanel" class="emotion-panel">
-      <h2>Select an Emotion</h2>
+      <h2>Choose an Emotion</h2>
       <div id="emotionList" class="emotion-list"></div>
     </div>
 
@@ -33,14 +25,21 @@
     <div id="chatContainer" class="chat-container">
       <div id="chatDisplay" class="chat-display">
         <div class="bot-message welcome-message">
-          <p>Hello Lujian! How are you feeling today?</p>
+          <p>Hi Lujian! I’m so glad to chat with you. How are you feeling today?</p>
         </div>
       </div>
 
       <!-- Chat Input -->
       <div class="chat-input-container">
-        <input type="text" id="userInput" placeholder="Type how you feel here..." />
+        <input type="text" id="userInput" placeholder="Tell me how you feel, love..." />
         <button id="sendBtn">Send</button>
+      </div>
+    </div>
+    
+    <!-- Wisdom Pop-up Container -->
+    <div id="wisdomPopup" class="wisdom-popup hidden">
+      <div class="wisdom-content">
+        <p id="wisdomText"></p>
       </div>
     </div>
   </div>
