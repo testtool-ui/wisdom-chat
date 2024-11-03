@@ -8,6 +8,14 @@
   <link rel="icon" href="path/to/favicon.ico">
 </head>
 <body class="dark-mode">
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Loading your chat with Selim...</p>
+    </div>
+  </div>
+
   <div class="app">
     <!-- Full-Screen Chat Interface -->
     <header>
@@ -25,7 +33,7 @@
     <div id="chatContainer" class="chat-container">
       <div id="chatDisplay" class="chat-display">
         <div class="bot-message welcome-message">
-          <p>Hi Lujian! I’m so glad to chat with you. How are you feeling today?</p>
+          <p>Hi Lujian! I’m so happy to chat with you. How are you feeling today?</p>
         </div>
       </div>
 
@@ -40,10 +48,11 @@
     <div id="wisdomPopup" class="wisdom-popup hidden">
       <div class="wisdom-content">
         <p id="wisdomText"></p>
+        <p id="wisdomDescription" class="wisdom-description"></p>
       </div>
     </div>
   </div>
 
   <script src="script.js" defer></script>
 </body>
-</html>
+  </html>
