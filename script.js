@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatDisplay = document.getElementById('chatDisplay');
   const userInput = document.getElementById('userInput');
   const sendBtn = document.getElementById('sendBtn');
-  const emotionSelection = document.getElementById('emotionSelection');
+  const emotionList = document.getElementById('emotionList');
   const themeToggle = document.getElementById('themeToggle');
   const loadingScreen = document.getElementById('loadingScreen');
+  const menuToggle = document.getElementById('menuToggle');
+  const emotionPanel = document.getElementById('emotionPanel');
 
   let data; // Store wisdom data here
 
@@ -25,21 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
   });
 
-  // Display Emotions as Buttons
+  // Toggle Emotion Panel
+  menuToggle.addEventListener('click', () => {
+    emotionPanel.classList.toggle('emotion-panel-open');
+  });
+
+  // Display Emotions in Slide-out Panel
   function displayEmotions() {
-    emotionSelection.innerHTML = '<p>Or, pick an emotion:</p>';
     data.forEach(item => {
       const button = document.createElement('button');
-      button.textContent = item.emotion;
-      button.addEventListener('click', () => showWisdom(item.emotion));
-      emotionSelection.appendChild(button);
+      button.textContent = item.emotion.charAt(0).toUpperCase() + item.emotion.slice(1);
+      button.addEventListener('click', () => showRandomWisdom(item.emotion));
+      emotionList.appendChild(button);
     });
   }
 
-  // Show wisdom based on emotion
-  function showWisdom(emotion) {
-    const wisdom = data.find(item => item.emotion === emotion)?.wisdom;
-    if (wisdom) addBotMessage(wisdom);
+  // Show Randomized Wisdom for Emotion
+  function showRandomWisdom(emotion) {
+    const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
+    const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
+    if (randomWisdom) addBotMessage(`Selim: ${randomWisdom}`);
   }
 
   // Add a message to the chat display
@@ -51,27 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the latest message
   }
 
-  // Process user input and suggest an emotion
-  function processInput() {
-    const inputText = userInput.value.trim().toLowerCase();
-    if (!inputText) return;
-
-    addUserMessage(inputText);
-
-    const detectedEmotion = data.find(item => inputText.includes(item.emotion));
-    if (detectedEmotion) {
-      setTimeout(() => {
-        addBotMessage(`It seems you might be feeling ${detectedEmotion.emotion}. Here’s some wisdom for you:`);
-        showWisdom(detectedEmotion.emotion);
-      }, 500); // Slight delay for a natural feel
-    } else {
-      setTimeout(() => addBotMessage("I'm here for you. Please choose an emotion or try describing how you feel."), 500);
-    }
-
-    userInput.value = ''; // Clear the input field
-  }
-
-  // Add user's message to the chat display
+  // Add User's Message
   function addUserMessage(message) {
     const userMessage = document.createElement('div');
     userMessage.className = 'user-message';
@@ -80,10 +67,62 @@ document.addEventListener('DOMContentLoaded', () => {
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 
-  // Handle send button click
+  // Process User Input for Emotion Analysis
+  function processInput() {
+    const inputText = userInput.value.trim().toLowerCase();
+    if (!inputText) return;
+
+    addUserMessage(inputText);
+    userInput.value = ''; // Clear the input field
+
+    const detectedEmotions = detectEmotions(inputText);
+    if (detectedEmotions.length > 0) {
+      const primaryEmotion = detectedEmotions[0];
+      const additionalResponse = getRandomResponse();
+      setTimeout(() => {
+        addBotMessage(`Selim: It sounds like you're feeling ${primaryEmotion}. ${additionalResponse}`);
+        showRandomWisdom(primaryEmotion);
+      }, 500); // Delay for a natural feel
+    } else {
+      setTimeout(() => {
+        addBotMessage("Selim: Hmm, I'm here for you, Lujian. Tell me more or choose an emotion from the menu.");
+      }, 500);
+    }
+  }
+
+  // Detect Emotions from User Input
+  function detectEmotions(text) {
+    const detected = [];
+    data.forEach(item => {
+      const emotion = item.emotion.toLowerCase();
+      if (text.includes(emotion) || closestMatch(text, emotion)) {
+        detected.push(emotion);
+      }
+    });
+    return Array.from(new Set(detected));
+  }
+
+  // Simple Closest Match for Spelling Variations
+  function closestMatch(text, word) {
+    return text.split(" ").some(part => part.startsWith(word.slice(0, 3)));
+  }
+
+  // Get Randomized Boyfriend-like Response
+  function getRandomResponse() {
+    const responses = [
+      "I'm here for you always.",
+      "You mean so much to me, Lujian.",
+      "Let's get through this together.",
+      "You can tell me anything.",
+      "I'm listening, love."
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  // Handle Send Button Click
   sendBtn.addEventListener('click', processInput);
 
-  // Handle Enter key press in input field
+  // Handle Enter Key Press in Input Field
   userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') processInput();
   });
