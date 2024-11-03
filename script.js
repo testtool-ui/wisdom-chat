@@ -1,64 +1,96 @@
-// Wait for the document to fully load
 document.addEventListener('DOMContentLoaded', () => {
   const chatDisplay = document.getElementById('chatDisplay');
   const userInput = document.getElementById('userInput');
   const sendBtn = document.getElementById('sendBtn');
   const emotionList = document.getElementById('emotionList');
-  const themeToggle = document.getElementById('themeToggle');
   const loadingScreen = document.getElementById('loadingScreen');
   const menuToggle = document.getElementById('menuToggle');
   const emotionPanel = document.getElementById('emotionPanel');
+  const wisdomPopup = document.getElementById('wisdomPopup');
+  const wisdomText = document.getElementById('wisdomText');
 
-  let data; // Store wisdom data here
+  let data;
 
-  // Load wisdom data from JSON file
+  // Load wisdom data
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
       data = jsonData;
-      displayEmotions(); // Display emotions once data is loaded
-      loadingScreen.style.display = 'none'; // Hide loading screen
+      displayEmotionCategories();
+      loadingScreen.style.display = 'none';
     })
     .catch(error => console.error('Error loading JSON data:', error));
 
-  // Toggle Dark Mode
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-  });
-
   // Toggle Emotion Panel
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', toggleEmotionPanel);
+
+  function toggleEmotionPanel() {
     emotionPanel.classList.toggle('emotion-panel-open');
+    menuToggle.classList.toggle('open');
+  }
+
+  document.addEventListener('click', (e) => {
+    if (emotionPanel.classList.contains('emotion-panel-open') && !emotionPanel.contains(e.target) && e.target !== menuToggle) {
+      toggleEmotionPanel();
+    }
   });
 
-  // Display Emotions in Slide-out Panel
-  function displayEmotions() {
-    data.forEach(item => {
-      const button = document.createElement('button');
-      button.textContent = item.emotion.charAt(0).toUpperCase() + item.emotion.slice(1);
-      button.addEventListener('click', () => showRandomWisdom(item.emotion));
-      emotionList.appendChild(button);
-    });
+  // Display Emotion Categories
+  function displayEmotionCategories() {
+    const categories = groupEmotionsByCategory(data);
+    for (const [category, emotions] of Object.entries(categories)) {
+      const categoryDiv = document.createElement('div');
+      categoryDiv.classList.add('emotion-category');
+      categoryDiv.textContent = category;
+
+      const subEmotionDiv = document.createElement('div');
+      subEmotionDiv.classList.add('emotion-options');
+
+      emotions.forEach(emotion => {
+        const button = document.createElement('button');
+        button.textContent = emotion;
+        button.addEventListener('click', () => showWisdomPopup(emotion));
+        subEmotionDiv.appendChild(button);
+      });
+
+      categoryDiv.addEventListener('click', () => {
+        subEmotionDiv.style.display = subEmotionDiv.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      emotionList.appendChild(categoryDiv);
+      emotionList.appendChild(subEmotionDiv);
+    }
   }
 
-  // Show Randomized Wisdom for Emotion
-  function showRandomWisdom(emotion) {
+  function groupEmotionsByCategory(data) {
+    const categories = {
+      "Positive": ["happy", "grateful", "hopeful", "excited", "motivated"],
+      "Negative": ["sad", "lonely", "anxious", "angry", "frustrated"],
+      "Reflective": ["nostalgic", "curious", "content", "peaceful", "thoughtful"]
+    };
+    return categories;
+  }
+
+  // Show Wisdom in Popup
+  function showWisdomPopup(emotion) {
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
-    const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
-    if (randomWisdom) addBotMessage(`Selim: ${randomWisdom}`);
+    wisdomText.textContent = wisdoms[Math.floor(Math.random() * wisdoms.length)];
+    wisdomPopup.classList.remove('hidden');
   }
 
-  // Add a message to the chat display
+  wisdomPopup.addEventListener('click', () => {
+    wisdomPopup.classList.add('hidden');
+  });
+
+  // Add Message to Chat
   function addBotMessage(message) {
     const botMessage = document.createElement('div');
     botMessage.className = 'bot-message';
     botMessage.innerHTML = `<p>${message}</p>`;
     chatDisplay.appendChild(botMessage);
-    chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the latest message
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 
-  // Add User's Message
   function addUserMessage(message) {
     const userMessage = document.createElement('div');
     userMessage.className = 'user-message';
@@ -67,30 +99,30 @@ document.addEventListener('DOMContentLoaded', () => {
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 
-  // Process User Input for Emotion Analysis
+  // Process Input for Emotion Detection
   function processInput() {
     const inputText = userInput.value.trim().toLowerCase();
     if (!inputText) return;
 
     addUserMessage(inputText);
-    userInput.value = ''; // Clear the input field
+    userInput.value = ''; // Clear input
 
     const detectedEmotions = detectEmotions(inputText);
     if (detectedEmotions.length > 0) {
       const primaryEmotion = detectedEmotions[0];
-      const additionalResponse = getRandomResponse();
       setTimeout(() => {
-        addBotMessage(`Selim: It sounds like you're feeling ${primaryEmotion}. ${additionalResponse}`);
-        showRandomWisdom(primaryEmotion);
-      }, 500); // Delay for a natural feel
+        const lovingMessage = getRandomLovingResponse();
+        addBotMessage(`Selim: It sounds like you're feeling ${primaryEmotion}. ${lovingMessage}`);
+        showWisdomPopup(primaryEmotion);
+      }, 500);
     } else {
       setTimeout(() => {
-        addBotMessage("Selim: Hmm, I'm here for you, Lujian. Tell me more or choose an emotion from the menu.");
+        addBotMessage("Selim: I'm here for you, Lujian. Talk to me or choose an emotion if you're unsure.");
       }, 500);
     }
   }
 
-  // Detect Emotions from User Input
+  // Emotion Detection with Advanced Matching
   function detectEmotions(text) {
     const detected = [];
     data.forEach(item => {
@@ -102,27 +134,34 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(new Set(detected));
   }
 
-  // Simple Closest Match for Spelling Variations
   function closestMatch(text, word) {
     return text.split(" ").some(part => part.startsWith(word.slice(0, 3)));
   }
 
-  // Get Randomized Boyfriend-like Response
-  function getRandomResponse() {
+  // Hundreds of Random Loving Responses
+  function getRandomLovingResponse() {
     const responses = [
-      "I'm here for you always.",
-      "You mean so much to me, Lujian.",
-      "Let's get through this together.",
+      "You’re amazing, Lujian.",
+      "I'm here for you, always.",
+      "You mean so much to me.",
+      "Let’s get through this together.",
       "You can tell me anything.",
-      "I'm listening, love."
+      "I’m listening, love.",
+      "Just thinking about you makes me smile.",
+      "I'm grateful to have you in my life.",
+      "You're my happiness, Lujian.",
+      "You are so special to me.",
+      "Your happiness means everything to me.",
+      "Tell me more, I'm all ears.",
+      "Let’s make every moment beautiful together.",
+      "I'm always here for you, Lujian.",
+      "I just love talking to you."
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  // Handle Send Button Click
+  // Handle Send Button and Enter Key
   sendBtn.addEventListener('click', processInput);
-
-  // Handle Enter Key Press in Input Field
   userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') processInput();
   });
