@@ -8,16 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const emotionPanel = document.getElementById('emotionPanel');
   const wisdomPopup = document.getElementById('wisdomPopup');
   const wisdomText = document.getElementById('wisdomText');
+  const wisdomDescription = document.getElementById('wisdomDescription');
 
   let data;
 
-  // Load wisdom data
+  // Load wisdom data and display loading screen transition
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
       data = jsonData;
       displayEmotionCategories();
-      loadingScreen.style.display = 'none';
+      loadingScreen.style.display = 'none'; // Hide loading screen
     })
     .catch(error => console.error('Error loading JSON data:', error));
 
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Display Emotion Categories
+  // Display Emotion Categories with Sub-Emotions
   function displayEmotionCategories() {
     const categories = groupEmotionsByCategory(data);
     for (const [category, emotions] of Object.entries(categories)) {
@@ -48,13 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       emotions.forEach(emotion => {
         const button = document.createElement('button');
-        button.textContent = emotion;
+        button.textContent = capitalizeFirstLetter(emotion);
         button.addEventListener('click', () => showWisdomPopup(emotion));
         subEmotionDiv.appendChild(button);
       });
 
       categoryDiv.addEventListener('click', () => {
-        subEmotionDiv.style.display = subEmotionDiv.style.display === 'flex' ? 'none' : 'flex';
+        document.querySelectorAll('.emotion-options').forEach(el => el.style.display = 'none');
+        subEmotionDiv.style.display = 'flex';
       });
 
       emotionList.appendChild(categoryDiv);
@@ -75,9 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function showWisdomPopup(emotion) {
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
     wisdomText.textContent = wisdoms[Math.floor(Math.random() * wisdoms.length)];
+    wisdomDescription.textContent = getEmotionDescription(emotion);
     wisdomPopup.classList.remove('hidden');
   }
 
+  // Close Wisdom Popup on click outside
   wisdomPopup.addEventListener('click', () => {
     wisdomPopup.classList.add('hidden');
   });
@@ -117,7 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500);
     } else {
       setTimeout(() => {
-        addBotMessage("Selim: I'm here for you, Lujian. Talk to me or choose an emotion if you're unsure.");
+        const randomReassurance = getRandomReassurance();
+        addBotMessage(`Selim: ${randomReassurance}`);
       }, 500);
     }
   }
@@ -158,6 +163,34 @@ document.addEventListener('DOMContentLoaded', () => {
       "I just love talking to you."
     ];
     return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  function getRandomReassurance() {
+    const reassurances = [
+      "I'm here for you, Lujian.",
+      "No matter what, I'm always by your side.",
+      "I’m here to listen whenever you need.",
+      "You're not alone; I’m with you."
+    ];
+    return reassurances[Math.floor(Math.random() * reassurances.length)];
+  }
+
+  // Add Description for Wisdom Pop-up
+  function getEmotionDescription(emotion) {
+    const descriptions = {
+      "happy": "I'm so glad to hear that you're feeling happy! Happiness is a blessing to cherish.",
+      "sad": "I'm here for you. It's okay to feel sad sometimes. Just know you're not alone.",
+      "anxious": "Take a deep breath, Lujian. You’re stronger than you know.",
+      "grateful": "Gratitude brings peace to the heart. Let’s count our blessings together.",
+      "hopeful": "Stay hopeful, love. Your positivity shines brightly.",
+      // Add more descriptions for each emotion
+    };
+    return descriptions[emotion] || "Remember, I'm here for you no matter what you're feeling.";
+  }
+
+  // Utility to capitalize the first letter
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   // Handle Send Button and Enter Key
