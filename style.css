@@ -1,4 +1,4 @@
-/* Base Styles */
+/* Base Styling */
 * {
   margin: 0;
   padding: 0;
@@ -6,223 +6,193 @@
   font-family: Arial, sans-serif;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f2f5;
-  transition: background-color 0.3s;
+body.dark-mode {
+  background-color: #1e1e1e;
 }
 
 .app {
   width: 100%;
-  max-width: 400px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  max-width: 600px;
+  height: 100vh;
+  background-color: #1e1e1e;
   display: flex;
   flex-direction: column;
-  position: relative;
+  color: #e0e0e0;
 }
 
-/* Loading Screen */
-.loading-screen {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  font-size: 1.5rem;
-  display: none;
-}
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #333;
 }
 
 header h1 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
-.header-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.menu-toggle, .theme-toggle {
+.menu-toggle {
   background: none;
   border: none;
-  color: #ffffff;
-  font-size: 1.5rem;
+  color: #e0e0e0;
+  font-size: 1.8rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease;
 }
 
-.menu-toggle:hover, .theme-toggle:hover {
-  transform: scale(1.2);
+.menu-toggle.open {
+  transform: rotate(90deg);
 }
 
-/* Chat Container */
+/* Full-Screen Chat Container */
 .chat-container {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  overflow-y: hidden;
   padding: 10px;
-  background-color: #f9f9f9;
-  overflow-y: auto;
 }
 
 .chat-display {
   flex-grow: 1;
   padding: 10px;
-  margin-bottom: 10px;
   overflow-y: auto;
-  border-radius: 10px;
+  background-color: #222;
+  border-radius: 8px;
 }
 
 .bot-message, .user-message {
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
   max-width: 80%;
-  word-wrap: break-word;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .bot-message {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #0055aa;
+  color: #e0e0e0;
   align-self: flex-start;
 }
 
 .user-message {
-  background-color: #e9ecef;
-  color: #000000;
+  background-color: #555;
+  color: #e0e0e0;
   align-self: flex-end;
 }
 
-/* Emotion Panel */
+/* Emotion Panel Styling */
 .emotion-panel {
   position: fixed;
   top: 0;
   right: -100%;
   width: 70%;
   height: 100%;
-  background-color: #ffffff;
-  box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
+  background-color: #333;
+  color: #e0e0e0;
+  box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.3);
+  transition: right 0.4s ease-in-out;
   padding: 20px;
-  transition: right 0.3s ease-in-out;
   z-index: 10;
 }
 
 .emotion-panel h2 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .emotion-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.emotion-list button {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
+.emotion-category {
+  background-color: #444;
+  color: #e0e0e0;
   padding: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
 }
 
-.emotion-list button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);
+.emotion-options {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.emotion-options button {
+  background-color: #0055aa;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.emotion-options button:hover {
+  background-color: #0072cc;
+}
+
+/* Toggle Panel Open/Close */
+.emotion-panel-open {
+  right: 0;
 }
 
 /* Chat Input */
 .chat-input-container {
   display: flex;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
 }
 
 .chat-input-container input {
   flex-grow: 1;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
   outline: none;
+  background-color: #444;
+  color: #e0e0e0;
 }
 
 .chat-input-container button {
-  background-color: #ffffff;
-  color: #007bff;
+  background-color: #0055aa;
+  color: #e0e0e0;
   border: none;
-  padding: 10px;
+  padding: 12px;
   margin-left: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .chat-input-container button:hover {
-  background-color: #e9ecef;
+  background-color: #0072cc;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  background-color: #1a1a1a;
+/* Wisdom Pop-up */
+.wisdom-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  z-index: 20;
+  display: none;
 }
 
-.app.dark-mode {
-  background-color: #333333;
+.wisdom-popup.hidden {
+  display: none;
 }
 
-/* Dark Mode Overrides */
-.dark-mode header {
-  background-color: #222;
-  color: #e9ecef;
-}
-
-.dark-mode .chat-container, .dark-mode .chat-display, .dark-mode .emotion-panel {
-  background-color: #222;
-}
-
-.dark-mode .bot-message {
-  background-color: #555;
-}
-
-.dark-mode .user-message {
-  background-color: #444;
-}
-
-.dark-mode .emotion-list button {
-  background-color: #555;
-}
-
-/* Slide-in Emotion Panel */
-.emotion-panel-open {
-  right: 0;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.wisdom-content {
+  color: #e0e0e0;
+  text-align: center;
+  font-size: 1rem;
   }
