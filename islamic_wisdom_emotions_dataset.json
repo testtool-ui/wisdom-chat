@@ -1,0 +1,486 @@
+[
+    {
+        "emotion": "happy",
+        "wisdom": "Remember to thank Allah for the joy you feel, as it is a blessing from Him. Allah says, 'If you are grateful, I will surely increase you [in favor]' (Qur'an 14:7)."
+    },
+    {
+        "emotion": "sad",
+        "wisdom": "When you feel sad, remember Allah\u2019s promise: 'Verily, with hardship comes ease' (Qur'an 94:6). Hold onto patience, and seek comfort in Salah and du'a."
+    },
+    {
+        "emotion": "anxious",
+        "wisdom": "In times of worry, remind yourself of Allah\u2019s protection and that He is the best disposer of affairs. Allah says, 'And whoever relies upon Allah \u2013 then He is sufficient for him' (Qur'an 65:3)."
+    },
+    {
+        "emotion": "grateful",
+        "wisdom": "Gratitude brings contentment. Reflect on Allah\u2019s blessings, and as Allah says, 'And He gave you from all you asked of Him. And if you should count the favor of Allah, you could not enumerate them' (Qur'an 14:34)."
+    },
+    {
+        "emotion": "lonely",
+        "wisdom": "When feeling alone, remember Allah is with you. He says, 'And We are closer to him than [his] jugular vein' (Qur'an 50:16). Seek comfort in His presence and remembrance."
+    },
+    {
+        "emotion": "fearful",
+        "wisdom": "When in fear, turn to Allah for He is the Protector. Allah says, 'Allah is the best protector, and He is the most merciful of the merciful' (Qur'an 12:64)."
+    },
+    {
+        "emotion": "disappointed",
+        "wisdom": "When feeling disappointed, trust in Allah's wisdom. Remember, 'It may be that you dislike a thing which is good for you and that you like a thing which is bad for you. Allah knows and you do not know' (Qur'an 2:216)."
+    },
+    {
+        "emotion": "hopeful",
+        "wisdom": "Hope is a blessing, and Allah loves those who have a positive outlook. Allah says, 'Indeed, the mercy of Allah is near to the doers of good' (Qur'an 7:56)."
+    },
+    {
+        "emotion": "angry",
+        "wisdom": "In anger, the Prophet Muhammad (peace be upon him) advised us to seek refuge in Allah and control our speech and actions. 'The strong person is not the one who can wrestle others, but the one who controls himself when angry' (Hadith)."
+    },
+    {
+        "emotion": "confused",
+        "wisdom": "In times of confusion, remember that Allah guides those who seek His help. Make du'a for guidance, as the Prophet (peace be upon him) taught: 'O Allah, show me the truth as truth and grant me the ability to follow it.'"
+    },
+    {
+        "emotion": "tired",
+        "wisdom": "When exhausted, rely on Allah\u2019s strength. Allah says, 'And rely upon the Ever-Living who does not die' (Qur'an 25:58). Take time to rest and recharge."
+    },
+    {
+        "emotion": "inspired",
+        "wisdom": "When feeling inspired, act with intention to please Allah. The Prophet (peace be upon him) said, 'The best of people are those who are most beneficial to people.' Let this inspiration lead to good deeds."
+    },
+    {
+        "emotion": "relieved",
+        "wisdom": "When relieved, remember Allah's kindness in removing distress. Allah says, 'And when harm touches you upon the sea, those that you call upon besides Him are lost from you' (Qur'an 17:67)."
+    },
+    {
+        "emotion": "forgiven",
+        "wisdom": "After being forgiven, turn to Allah with gratitude and humility. Allah says, 'Indeed, Allah loves those who are constantly repentant and loves those who purify themselves' (Qur'an 2:222)."
+    },
+    {
+        "emotion": "embarrassed",
+        "wisdom": "In moments of embarrassment, remember the modesty the Prophet (peace be upon him) encouraged. He said, 'Modesty does not bring anything but good.' Embrace modesty as a strength."
+    },
+    {
+        "emotion": "nervous",
+        "wisdom": "When feeling nervous, remember that Allah is always with you. Allah says, 'Do not fear; indeed, I am with you both; I hear and I see' (Qur'an 20:46). Seek comfort in His guidance."
+    },
+    {
+        "emotion": "overwhelmed",
+        "wisdom": "In moments of overwhelm, turn to Allah, for He does not burden a soul beyond what it can bear. Remember, 'And seek help through patience and prayer' (Qur'an 2:45)."
+    },
+    {
+        "emotion": "regretful",
+        "wisdom": "Regret can lead to repentance. Allah says, 'And those who, when they commit an immorality or wrong themselves [by transgression], remember Allah and seek forgiveness for their sins' (Qur'an 3:135)."
+    },
+    {
+        "emotion": "appreciated",
+        "wisdom": "Feeling appreciated is a blessing from Allah. Use this to inspire gratitude, as the Prophet (peace be upon him) said, 'He who does not thank people does not thank Allah.'"
+    },
+    {
+        "emotion": "jealous",
+        "wisdom": "When jealousy arises, remind yourself to seek Allah\u2019s blessings instead. The Prophet (peace be upon him) said, 'Do not look at those above you; rather, look at those below you.'"
+    },
+    {
+        "emotion": "motivated",
+        "wisdom": "Let motivation lead to actions that please Allah. 'And say, 'Do [as you will], for Allah will see your deeds, and [so, will] His Messenger and the believers' (Qur'an 9:105)."
+    },
+    {
+        "emotion": "relaxed",
+        "wisdom": "In times of relaxation, remember to use your time wisely. Allah says, 'Then when you have finished [your duties], stand up [for worship]' (Qur'an 94:7)."
+    },
+    {
+        "emotion": "confident",
+        "wisdom": "Confidence comes from trusting in Allah. Remember, 'And in Allah let the believers put their trust' (Qur'an 9:51). Let your confidence be rooted in His support."
+    },
+    {
+        "emotion": "betrayed",
+        "wisdom": "If you feel betrayed, know that Allah is always by your side. Allah says, 'And rely upon Allah. And sufficient is Allah as Disposer of affairs' (Qur'an 33:3)."
+    },
+    {
+        "emotion": "loved",
+        "wisdom": "Being loved is a blessing. The Prophet (peace be upon him) said, 'You will not enter paradise until you believe, and you will not believe until you love each other.'"
+    },
+    {
+        "emotion": "insecure",
+        "wisdom": "Insecurity fades with trust in Allah. 'Allah is the Protector of those who believe' (Qur'an 2:257). Seek His protection in times of doubt."
+    },
+    {
+        "emotion": "hopeful",
+        "wisdom": "Hope is a sign of faith. The Prophet (peace be upon him) said, 'A strong believer is better and more beloved to Allah than a weak believer, while there is good in both.'"
+    },
+    {
+        "emotion": "envy",
+        "wisdom": "Avoid envy, for it harms the soul. The Prophet (peace be upon him) advised, 'Beware of envy because envy consumes good deeds like fire consumes wood.'"
+    },
+    {
+        "emotion": "content",
+        "wisdom": "Contentment brings peace. The Prophet (peace be upon him) said, 'Richness is not having many possessions, but richness is being content with oneself.'"
+    },
+    {
+        "emotion": "excited",
+        "wisdom": "In moments of excitement, remember to thank Allah and seek His guidance to use this energy for good deeds."
+    },
+    {
+        "emotion": "fulfilled",
+        "wisdom": "Fulfillment is a blessing from Allah. 'Indeed, Allah does not allow the reward of the righteous to be lost' (Qur'an 9:120)."
+    },
+    {
+        "emotion": "heartbroken",
+        "wisdom": "In heartbreak, turn to Allah. He heals the broken hearts, 'For indeed, it is He who makes [one] laugh and weep' (Qur'an 53:43)."
+    },
+    {
+        "emotion": "surprised",
+        "wisdom": "In surprise, recall Allah\u2019s control over all things. 'And whatever strikes you, it is from Allah' (Qur'an 64:11)."
+    },
+    {
+        "emotion": "confident",
+        "wisdom": "Confidence is from Allah\u2019s grace. Remember, 'Allah is sufficient for us, and He is the best Disposer of affairs' (Qur'an 3:173)."
+    },
+    {
+        "emotion": "serene",
+        "wisdom": "Serenity is a sign of Allah's presence. 'Verily, in the remembrance of Allah do hearts find rest' (Qur'an 13:28)."
+    },
+    {
+        "emotion": "ashamed",
+        "wisdom": "Shame can lead to repentance. Allah loves those who constantly repent. 'And Allah loves those who purify themselves' (Qur'an 9:108)."
+    },
+    {
+        "emotion": "uplifted",
+        "wisdom": "When uplifted, give thanks and use this energy for good deeds. 'So be mindful of Allah as much as you are able' (Qur'an 64:16)."
+    },
+    {
+        "emotion": "proud",
+        "wisdom": "When feeling proud, remember that all good comes from Allah. He says, 'And whatever of blessings and good things you have, it is from Allah' (Qur'an 16:53)."
+    },
+    {
+        "emotion": "humble",
+        "wisdom": "In humility, remember the Prophet\u2019s (peace be upon him) teaching: 'Whoever humbles himself for the sake of Allah, Allah will raise him in status.'"
+    },
+    {
+        "emotion": "nostalgic",
+        "wisdom": "When feeling nostalgic, cherish your memories, but also trust in Allah\u2019s plan for the future. 'Indeed, Allah is with those who are patient' (Qur'an 2:153)."
+    },
+    {
+        "emotion": "peaceful",
+        "wisdom": "Peace in the heart comes through remembrance of Allah. 'Verily, in the remembrance of Allah do hearts find rest' (Qur'an 13:28)."
+    },
+    {
+        "emotion": "frustrated",
+        "wisdom": "When frustrated, seek Allah\u2019s guidance and patience. The Prophet (peace be upon him) said, 'Patience is a light.'"
+    },
+    {
+        "emotion": "generous",
+        "wisdom": "Generosity is beloved by Allah. The Prophet (peace be upon him) said, 'The upper hand is better than the lower hand.' Give with an open heart."
+    },
+    {
+        "emotion": "curious",
+        "wisdom": "Curiosity can lead to learning and growth. Reflect on Allah\u2019s creation and signs. 'Indeed, in the creation of the heavens and the earth, there are signs for those who understand' (Qur'an 3:190)."
+    },
+    {
+        "emotion": "annoyed",
+        "wisdom": "When annoyed, strive for patience. The Prophet (peace be upon him) advised, 'Do not get angry.' Seek refuge in Allah when you feel this way."
+    },
+    {
+        "emotion": "empathetic",
+        "wisdom": "Empathy is a beautiful trait in Islam. The Prophet (peace be upon him) said, 'None of you truly believes until he loves for his brother what he loves for himself.'"
+    },
+    {
+        "emotion": "amused",
+        "wisdom": "Amusement is part of life. Keep Allah in your heart during joyful moments and remember, 'So which of the favors of your Lord would you deny?' (Qur'an 55:13)."
+    },
+    {
+        "emotion": "determined",
+        "wisdom": "Determination in good deeds is rewarded by Allah. 'Indeed, Allah does not allow the reward of the righteous to be lost' (Qur'an 9:120)."
+    },
+    {
+        "emotion": "ashamed",
+        "wisdom": "Shame can lead to growth. Allah loves those who constantly repent and seek forgiveness. 'And Allah loves those who purify themselves' (Qur'an 9:108)."
+    },
+    {
+        "emotion": "apathetic",
+        "wisdom": "If feeling detached, remember Allah\u2019s blessings and reengage with your purpose. 'And do not be like those who forgot Allah, so He made them forget themselves' (Qur'an 59:19)."
+    },
+    {
+        "emotion": "doubtful",
+        "wisdom": "In times of doubt, seek clarity from Allah. The Prophet (peace be upon him) advised, 'Leave that which makes you doubt for that which does not make you doubt.'"
+    },
+    {
+        "emotion": "betrayed",
+        "wisdom": "When betrayed, turn to Allah, for He never abandons you. 'And rely upon Allah. And sufficient is Allah as Disposer of affairs' (Qur'an 33:3)."
+    },
+    {
+        "emotion": "blessed",
+        "wisdom": "In moments of feeling blessed, remember to share your blessings. The Prophet (peace be upon him) said, 'The most beloved people to Allah are those who are most beneficial to people.'"
+    },
+    {
+        "emotion": "content",
+        "wisdom": "Contentment with what Allah has provided is the true wealth. The Prophet (peace be upon him) said, 'Richness is not having many possessions, but richness is being content with oneself.'"
+    },
+    {
+        "emotion": "remorseful",
+        "wisdom": "In times of remorse, know that Allah is forgiving. 'Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah' (Qur'an 39:53)."
+    },
+    {
+        "emotion": "patient",
+        "wisdom": "Patience is rewarded by Allah. 'Indeed, the patient will be given their reward without account' (Qur'an 39:10)."
+    },
+    {
+        "emotion": "forgiving",
+        "wisdom": "Forgiving others is a virtue. The Prophet (peace be upon him) said, 'Whoever does not show mercy to people, Allah will not show mercy to him.'"
+    },
+    {
+        "emotion": "thankful",
+        "wisdom": "Thankfulness increases blessings. 'If you are grateful, I will surely increase you [in favor]' (Qur'an 14:7)."
+    },
+    {
+        "emotion": "curious",
+        "wisdom": "Curiosity can lead to deeper understanding. Allah says, 'And He taught Adam the names \u2013 all of them' (Qur'an 2:31), encouraging the pursuit of knowledge."
+    },
+    {
+        "emotion": "trusting",
+        "wisdom": "Trust in Allah brings peace. 'And whoever relies upon Allah \u2013 then He is sufficient for him' (Qur'an 65:3)."
+    },
+    {
+        "emotion": "repentant",
+        "wisdom": "Repentance is beloved to Allah. The Prophet (peace be upon him) said, 'The one who repents from sin is like one who did not sin.'"
+    },
+    {
+        "emotion": "optimistic",
+        "wisdom": "Optimism is part of faith. The Prophet (peace be upon him) loved good omens and always saw hope in difficult situations."
+    },
+    {
+        "emotion": "faithful",
+        "wisdom": "Faith strengthens the heart. 'Those who have believed and whose hearts are assured by the remembrance of Allah' (Qur'an 13:28)."
+    },
+    {
+        "emotion": "faithful",
+        "wisdom": "Faith in Allah grants peace. 'Indeed, those who have believed and done righteous deeds \u2013 their Lord will guide them because of their faith' (Qur'an 10:9)."
+    },
+    {
+        "emotion": "optimistic",
+        "wisdom": "Optimism inspires resilience. The Prophet (peace be upon him) said, 'Whoever places his trust in Allah, Allah will suffice him.'"
+    },
+    {
+        "emotion": "patient",
+        "wisdom": "Patience in adversity is rewarded. 'And be patient, for indeed, Allah does not allow the reward of the righteous to be lost' (Qur'an 11:115)."
+    },
+    {
+        "emotion": "hopeful",
+        "wisdom": "Hope is strength. 'So do not lose heart, and do not grieve, and you will be superior if you are [true] believers' (Qur'an 3:139)."
+    },
+    {
+        "emotion": "remorseful",
+        "wisdom": "Regret can lead to forgiveness. The Prophet (peace be upon him) said, 'Remorse is repentance.' Seek forgiveness and grow from your experiences."
+    },
+    {
+        "emotion": "appreciative",
+        "wisdom": "Expressing gratitude increases blessings. 'If you are grateful, I will surely increase you [in favor]' (Qur'an 14:7)."
+    },
+    {
+        "emotion": "inspired",
+        "wisdom": "Inspiration is a gift. The Prophet (peace be upon him) said, 'Allah loves that when any of you does a job, he should perfect it.' Channel inspiration into good deeds."
+    },
+    {
+        "emotion": "motivated",
+        "wisdom": "Let motivation drive actions pleasing to Allah. 'Indeed, Allah does not allow the reward of the righteous to be lost' (Qur'an 9:120)."
+    },
+    {
+        "emotion": "persevering",
+        "wisdom": "Perseverance is a sign of strong faith. The Prophet (peace be upon him) said, 'The strong believer is better and more beloved to Allah than the weak believer.'"
+    },
+    {
+        "emotion": "curious",
+        "wisdom": "Curiosity can lead to wisdom. Reflect on Allah\u2019s creations, for 'Indeed, in the creation of the heavens and the earth are signs for those who understand' (Qur'an 3:190)."
+    },
+    {
+        "emotion": "happy",
+        "wisdom": "Happiness is a gift from Allah. Remember, 'And it is He who makes [one] laugh and weep' (Qur'an 53:43). Cherish this feeling with gratitude."
+    },
+    {
+        "emotion": "happy",
+        "wisdom": "Rejoice in blessings, for Allah says, 'Say, 'In the bounty of Allah and in His mercy - in that let them rejoice; it is better than what they accumulate'' (Qur'an 10:58)."
+    },
+    {
+        "emotion": "sad",
+        "wisdom": "Sadness is part of the human experience. Remember, 'Indeed, Allah is with the patient' (Qur'an 2:153). Let patience be your strength."
+    },
+    {
+        "emotion": "grateful",
+        "wisdom": "Gratitude multiplies blessings. Allah says, 'If you are grateful, I will surely increase you [in favor]' (Qur'an 14:7). Thank Him for every gift."
+    },
+    {
+        "emotion": "anxious",
+        "wisdom": "Ease your heart by relying on Allah, 'Say, 'Never will we be struck except by what Allah has decreed for us; He is our protector'' (Qur'an 9:51)."
+    },
+    {
+        "emotion": "anxious",
+        "wisdom": "In moments of anxiety, remember Allah's assurance: 'Indeed, Allah is with those who fear Him and those who are doers of good' (Qur'an 16:128)."
+    },
+    {
+        "emotion": "lonely",
+        "wisdom": "If you feel lonely, Allah is always with you, closer than your own soul. 'And We are closer to him than [his] jugular vein' (Qur'an 50:16)."
+    },
+    {
+        "emotion": "excited",
+        "wisdom": "Channel your excitement into good deeds. The Prophet (peace be upon him) said, 'The best among you are those who bring the most benefit to others.'"
+    },
+    {
+        "emotion": "determined",
+        "wisdom": "With determination, seek Allah's help. 'Indeed, Allah does not allow the reward of the righteous to be lost' (Qur'an 9:120)."
+    },
+    {
+        "emotion": "confident",
+        "wisdom": "Confidence in Allah's plan brings peace. 'And rely upon the Ever-Living who does not die' (Qur'an 25:58)."
+    },
+    {
+        "emotion": "confident",
+        "wisdom": "Trusting Allah\u2019s wisdom strengthens you. 'And put your trust in Allah; sufficient is Allah as Disposer of affairs' (Qur'an 33:3)."
+    },
+    {
+        "emotion": "humble",
+        "wisdom": "Humility elevates you in Allah's eyes. 'And lower your wing to the believers' (Qur'an 15:88)."
+    },
+    {
+        "emotion": "forgiving",
+        "wisdom": "Forgive others to gain Allah's mercy. The Prophet (peace be upon him) said, 'Forgive, and you will be forgiven.'"
+    },
+    {
+        "emotion": "apathetic",
+        "wisdom": "When feeling indifferent, reflect on Allah's blessings. 'Do they not look into the realm of the heavens and the earth?' (Qur'an 7:185)."
+    },
+    {
+        "emotion": "relieved",
+        "wisdom": "Relief is from Allah. 'And He who fed them, [saving them] from hunger and made them safe [saving them] from fear' (Qur'an 106:4)."
+    },
+    {
+        "emotion": "angry",
+        "wisdom": "Channel your anger with wisdom. The Prophet (peace be upon him) said, 'When one of you is angry, let him remain silent.'"
+    },
+    {
+        "emotion": "uplifted",
+        "wisdom": "Feeling uplifted is a sign of Allah's mercy. Give thanks by doing good deeds to honor this state of heart."
+    },
+    {
+        "emotion": "optimistic",
+        "wisdom": "Optimism is a reflection of faith. 'So do not weaken and do not grieve, and you will be superior if you are [true] believers' (Qur'an 3:139)."
+    },
+    {
+        "emotion": "nostalgic",
+        "wisdom": "Cherish memories and trust in Allah's plan. 'Indeed, Allah does not wrong people at all, but it is the people who are wronging themselves' (Qur'an 10:44)."
+    },
+    {
+        "emotion": "joyful",
+        "wisdom": "Celebrate joy as a reminder of Allah\u2019s blessings. 'And He has made for you from the grazing livestock, clothing and warmth' (Qur'an 16:5)."
+    },
+    {
+        "emotion": "surprised",
+        "wisdom": "In surprise, reflect on Allah's infinite wisdom. 'And you do not will except that Allah wills' (Qur'an 76:30)."
+    },
+    {
+        "emotion": "anxious",
+        "wisdom": "When anxious, remember that Allah knows what you cannot foresee. 'Perhaps you hate a thing and it is good for you' (Qur'an 2:216)."
+    },
+    {
+        "emotion": "grateful",
+        "wisdom": "Gratitude brings light to the heart. 'So remember Me; I will remember you' (Qur'an 2:152)."
+    },
+    {
+        "emotion": "relieved",
+        "wisdom": "In moments of relief, turn to Allah in thankfulness. 'He saved you from every distress' (Qur'an 27:62)."
+    },
+    {
+        "emotion": "angry",
+        "wisdom": "Manage anger by seeking Allah's help. The Prophet (peace be upon him) said, 'If any of you becomes angry, let him keep silent.'"
+    },
+    {
+        "emotion": "uplifted",
+        "wisdom": "When uplifted, channel your energy towards good. 'And cooperate in righteousness and piety' (Qur'an 5:2)."
+    },
+    {
+        "emotion": "optimistic",
+        "wisdom": "Stay hopeful, for Allah is with the hopeful. The Prophet (peace be upon him) loved optimism and good omens."
+    },
+    {
+        "emotion": "nostalgic",
+        "wisdom": "Nostalgia can be a reminder of Allah's wisdom in the journey of life. 'To Allah belongs the command before and after' (Qur'an 30:4)."
+    },
+    {
+        "emotion": "hopeful",
+        "wisdom": "In hope, find strength. 'And rely upon the Ever-Living who does not die' (Qur'an 25:58)."
+    },
+    {
+        "emotion": "jealous",
+        "wisdom": "If jealousy arises, seek Allah's blessings. The Prophet (peace be upon him) said, 'Do not look at those above you; look at those below.'"
+    },
+    {
+        "emotion": "frustrated",
+        "wisdom": "In frustration, turn to prayer. 'And seek help through patience and prayer' (Qur'an 2:153)."
+    },
+    {
+        "emotion": "determined",
+        "wisdom": "Determination in Allah\u2019s path is rewarded. 'Allah loves those who are constant and patient' (Qur'an 3:146)."
+    },
+    {
+        "emotion": "curious",
+        "wisdom": "Curiosity is the beginning of wisdom. Reflect on Allah\u2019s signs. 'And He taught Adam the names \u2013 all of them' (Qur'an 2:31)."
+    },
+    {
+        "emotion": "inspired",
+        "wisdom": "Let inspiration lead to action for Allah\u2019s sake. 'So race to [all that is] good' (Qur'an 2:148)."
+    },
+    {
+        "emotion": "motivated",
+        "wisdom": "Stay motivated in doing good, for Allah rewards the steadfast. 'So whoever does an atom\u2019s weight of good will see it' (Qur'an 99:7)."
+    },
+    {
+        "emotion": "patient",
+        "wisdom": "Patience brings reward. 'Indeed, the patient will be given their reward without account' (Qur'an 39:10)."
+    },
+    {
+        "emotion": "confident",
+        "wisdom": "True confidence comes from trusting in Allah. 'And He will suffice you against them' (Qur'an 3:173)."
+    },
+    {
+        "emotion": "humble",
+        "wisdom": "In humility, find closeness to Allah. 'And lower your wing to the believers' (Qur'an 15:88)."
+    },
+    {
+        "emotion": "trusting",
+        "wisdom": "Trusting Allah\u2019s wisdom provides peace. 'And whoever relies upon Allah \u2013 He is sufficient for him' (Qur'an 65:3)."
+    },
+    {
+        "emotion": "joyful",
+        "wisdom": "Joy is a sign of Allah\u2019s blessings. Rejoice in gratitude and humility."
+    },
+    {
+        "emotion": "serene",
+        "wisdom": "Serenity is found in Allah\u2019s remembrance. 'Verily, in the remembrance of Allah do hearts find rest' (Qur'an 13:28)."
+    },
+    {
+        "emotion": "faithful",
+        "wisdom": "Faith brings peace. 'And their hearts are assured by the remembrance of Allah' (Qur'an 13:28)."
+    },
+    {
+        "emotion": "repentant",
+        "wisdom": "Repentance brings mercy. 'Indeed, Allah loves those who are constantly repentant' (Qur'an 2:222)."
+    },
+    {
+        "emotion": "appreciative",
+        "wisdom": "Appreciation increases blessings. 'If you are grateful, I will surely increase you [in favor]' (Qur'an 14:7)."
+    },
+    {
+        "emotion": "doubtful",
+        "wisdom": "When doubt creeps in, seek Allah\u2019s clarity. 'And do not mix the truth with falsehood' (Qur'an 2:42)."
+    },
+    {
+        "emotion": "content",
+        "wisdom": "Contentment with Allah's provision brings peace. 'So be content with what you have' (Qur'an 4:36)."
+    },
+    {
+        "emotion": "remorseful",
+        "wisdom": "Remorse leads to forgiveness. 'Say, 'Do not despair of the mercy of Allah'' (Qur'an 39:53)."
+    },
+    {
+        "emotion": "peaceful",
+        "wisdom": "Seek peace through Allah. 'Peace \u2013 a word from a Merciful Lord' (Qur'an 36:58)."
+    }
+]
