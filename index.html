@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Islamic Wisdom Chatbot</title>
+  <title>Chat with Selim</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="path/to/favicon.ico"> <!-- Optional: add an icon -->
+  <link rel="icon" href="path/to/favicon.ico">
 </head>
 <body>
   <div class="app">
@@ -14,30 +14,32 @@
       <p>Loading...</p>
     </div>
 
-    <!-- Header with Theme Toggle -->
+    <!-- Header with Theme Toggle and Menu Icon -->
     <header>
-      <h1>Islamic Wisdom Chatbot</h1>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+      <h1>Chat with Selim</h1>
+      <div class="header-buttons">
+        <button id="menuToggle" class="menu-toggle">☰</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
+
+    <!-- Slide-out Emotion Panel -->
+    <div id="emotionPanel" class="emotion-panel">
+      <h2>Select an Emotion</h2>
+      <div id="emotionList" class="emotion-list"></div>
+    </div>
 
     <!-- Chat Container -->
     <div id="chatContainer" class="chat-container">
-      <!-- Chat Display -->
       <div id="chatDisplay" class="chat-display">
         <div class="bot-message welcome-message">
-          <p>Welcome! How are you feeling today?</p>
+          <p>Hello Lujian! How are you feeling today?</p>
         </div>
-      </div>
-
-      <!-- Emotion Selection -->
-      <div id="emotionSelection" class="emotion-selection">
-        <p>Or, pick an emotion:</p>
-        <!-- Emotion buttons will be dynamically loaded here -->
       </div>
 
       <!-- Chat Input -->
       <div class="chat-input-container">
-        <input type="text" id="userInput" placeholder="Type your feelings here..." />
+        <input type="text" id="userInput" placeholder="Type how you feel here..." />
         <button id="sendBtn">Send</button>
       </div>
     </div>
