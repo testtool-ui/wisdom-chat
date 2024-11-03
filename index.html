@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Islamic Wisdom Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="path/to/favicon.ico"> <!-- Optional: add an icon -->
+</head>
+<body>
+  <div class="app">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Header with Theme Toggle -->
+    <header>
+      <h1>Islamic Wisdom Chatbot</h1>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <!-- Chat Container -->
+    <div id="chatContainer" class="chat-container">
+      <!-- Chat Display -->
+      <div id="chatDisplay" class="chat-display">
+        <div class="bot-message welcome-message">
+          <p>Welcome! How are you feeling today?</p>
+        </div>
+      </div>
+
+      <!-- Emotion Selection -->
+      <div id="emotionSelection" class="emotion-selection">
+        <p>Or, pick an emotion:</p>
+        <!-- Emotion buttons will be dynamically loaded here -->
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-container">
+        <input type="text" id="userInput" placeholder="Type your feelings here..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
