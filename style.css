@@ -24,7 +24,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s;
+  position: relative;
 }
 
 /* Loading Screen */
@@ -40,7 +40,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   color: #ffffff;
   font-size: 1.5rem;
-  display: none; /* Hidden by default */
+  display: none;
 }
 
 /* Header */
@@ -57,7 +57,12 @@ header h1 {
   font-size: 1.2rem;
 }
 
-.theme-toggle {
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-toggle, .theme-toggle {
   background: none;
   border: none;
   color: #ffffff;
@@ -66,8 +71,8 @@ header h1 {
   transition: transform 0.2s;
 }
 
-.theme-toggle:hover {
-  transform: rotate(30deg);
+.menu-toggle:hover, .theme-toggle:hover {
+  transform: scale(1.2);
 }
 
 /* Chat Container */
@@ -109,34 +114,43 @@ header h1 {
   align-self: flex-end;
 }
 
-/* Emotion Selection */
-.emotion-selection {
-  padding: 10px;
-  background-color: #f0f0f5;
+/* Emotion Panel */
+.emotion-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.emotion-panel h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.emotion-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
 }
 
-.emotion-selection p {
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.emotion-selection button {
+.emotion-list button {
   background-color: #007bff;
   color: #ffffff;
   border: none;
   border-radius: 10px;
   padding: 10px;
-  margin: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.emotion-selection button:hover {
+.emotion-list button:hover {
   background-color: #0056b3;
   transform: scale(1.1);
 }
@@ -180,17 +194,14 @@ body.dark-mode {
   background-color: #333333;
 }
 
+/* Dark Mode Overrides */
 .dark-mode header {
   background-color: #222;
   color: #e9ecef;
 }
 
-.dark-mode .chat-container {
+.dark-mode .chat-container, .dark-mode .chat-display, .dark-mode .emotion-panel {
   background-color: #222;
-}
-
-.dark-mode .chat-display {
-  background-color: #333;
 }
 
 .dark-mode .bot-message {
@@ -201,26 +212,17 @@ body.dark-mode {
   background-color: #444;
 }
 
-.dark-mode .emotion-selection {
-  background-color: #444;
-}
-
-.dark-mode .emotion-selection button {
+.dark-mode .emotion-list button {
   background-color: #555;
-  color: #e9ecef;
 }
 
-.dark-mode .chat-input-container {
-  background-color: #222;
-}
-
-.dark-mode .chat-input-container button {
-  background-color: #333;
-  color: #e9ecef;
+/* Slide-in Emotion Panel */
+.emotion-panel-open {
+  right: 0;
 }
 
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
+  }
