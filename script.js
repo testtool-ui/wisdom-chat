@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
-      data = jsonData;
+      // Filter out emotions without wisdom entries
+      data = jsonData.filter(item => item.wisdom);
       displayEmotions();
     })
     .catch(error => console.error('Error loading JSON data:', error));
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const optionsContainer = document.createElement('div');
       optionsContainer.classList.add('emotion-options');
+      optionsContainer.style.display = 'none'; // Initially hidden
 
       emotionCategories[category].forEach(emotion => {
         const button = document.createElement('button');
@@ -51,13 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
         optionsContainer.appendChild(button);
       });
 
+      // Toggle category open/close and ensure only one category is open
       categoryButton.addEventListener('click', () => {
-        document.querySelectorAll('.emotion-options').forEach(container => container.style.display = 'none');
-        if (optionsContainer.style.display === 'none' || optionsContainer.style.display === '') {
-          optionsContainer.style.display = 'flex';
-        } else {
-          optionsContainer.style.display = 'none';
-        }
+        document.querySelectorAll('.emotion-options').forEach(container => {
+          if (container !== optionsContainer) container.style.display = 'none';
+        });
+        optionsContainer.style.display = optionsContainer.style.display === 'none' ? 'flex' : 'none';
       });
 
       emotionList.appendChild(categoryButton);
@@ -73,10 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "anxiety": ["anxious", "nervous", "fearful"],
       "gratitude": ["grateful", "appreciated", "thankful"],
       "love": ["loved", "appreciated", "caring"],
-      "motivation": ["motivated", "determined", "focused"],
-      "patience": ["patient", "calm", "composed"],
+      "motivation": ["motivated", "determined"], // "focused" removed due to lack of wisdom
+      "patience": ["patient", "calm"], // "composed" removed
       "spirituality": ["faithful", "hopeful", "optimistic"],
     };
+
+    // Only include emotions present in the dataset
+    Object.keys(categories).forEach(category => {
+      categories[category] = categories[category].filter(emotion => data.some(item => item.emotion === emotion));
+    });
 
     return categories;
   }
