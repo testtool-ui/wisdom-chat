@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let data; // Store wisdom data here
 
-  // Load wisdom data from JSON file without loading animation
+  // Load wisdom data from JSON file
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       emotionCategories[category].forEach(emotion => {
         const button = document.createElement('button');
         button.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
-        button.addEventListener('click', () => showWisdomInChat(emotion));
+        button.addEventListener('click', () => handleEmotionSelection(emotion));
         optionsContainer.appendChild(button);
       });
 
@@ -84,9 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return categories;
   }
 
+  // Handle Emotion Selection
+  function handleEmotionSelection(emotion) {
+    closeEmotionPanel(); // Close the panel on selection
+    addUserMessage(`I’m feeling ${emotion}...`);
+
+    // Display a loving reply
+    setTimeout(() => {
+      const lovingResponse = getLovingResponse();
+      addBotMessage(`Selim: ${lovingResponse}`);
+      showWisdomInChat(emotion);
+    }, 500); // Delay for a natural feel
+  }
+
   // Show Random Wisdom in Chat
   function showWisdomInChat(emotion) {
-    closeEmotionPanel(); // Close the panel on selection
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
     const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
     if (randomWisdom) addBotMessage(`Selim: ${randomWisdom}`);
