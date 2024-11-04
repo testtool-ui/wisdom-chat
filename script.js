@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
-      data = jsonData.filter(item => item.wisdom); // Filter to include only emotions with wisdom
+      data = jsonData;
       displayEmotions();
     })
     .catch(error => console.error('Error loading JSON data:', error));
@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       categoryButton.addEventListener('click', () => {
-        // Close all other options, and toggle this one
         document.querySelectorAll('.emotion-options').forEach(container => container.style.display = 'none');
         if (optionsContainer.style.display === 'none' || optionsContainer.style.display === '') {
           optionsContainer.style.display = 'flex';
@@ -78,11 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "patience": ["patient", "calm", "composed"],
       "spirituality": ["faithful", "hopeful", "optimistic"],
     };
-
-    // Filter out any emotions that don't have wisdom in the dataset
-    Object.keys(categories).forEach(category => {
-      categories[category] = categories[category].filter(emotion => data.some(item => item.emotion === emotion));
-    });
 
     return categories;
   }
@@ -198,7 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
       "I’m all ears, Lujian. Let me know how you’re feeling, or select an emotion from the menu.",
       "I’ll always be here to listen. Tell me more, sweetheart, or try choosing an emotion.",
       "You're never alone with me here. Share anything you like, or pick an emotion if you need a bit of guidance.",
-      // Add many more random entries to create a vast pool of unrecognized responses
+      "I’m right here, love. If it’s hard to express, try selecting an emotion that feels closest.",
+      "My ears and heart are open. Tell me more, or feel free to pick from the emotion menu.",
+      "I’m here, always ready to listen. Whatever it is, I want to know.",
+      "If words are hard, just know I’m here. Try selecting an emotion if it helps."
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   }
