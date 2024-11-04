@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
-      data = jsonData;
+      data = jsonData.filter(item => item.wisdom); // Filter to include only emotions with wisdom
       displayEmotions();
     })
     .catch(error => console.error('Error loading JSON data:', error));
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const optionsContainer = document.createElement('div');
       optionsContainer.classList.add('emotion-options');
-      
+
       emotionCategories[category].forEach(emotion => {
         const button = document.createElement('button');
         button.textContent = emotion.charAt(0).toUpperCase() + emotion.slice(1);
@@ -52,8 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       categoryButton.addEventListener('click', () => {
+        // Close all other options, and toggle this one
         document.querySelectorAll('.emotion-options').forEach(container => container.style.display = 'none');
-        if (optionsContainer.style.display === 'none') {
+        if (optionsContainer.style.display === 'none' || optionsContainer.style.display === '') {
           optionsContainer.style.display = 'flex';
         } else {
           optionsContainer.style.display = 'none';
@@ -77,6 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
       "patience": ["patient", "calm", "composed"],
       "spirituality": ["faithful", "hopeful", "optimistic"],
     };
+
+    // Filter out any emotions that don't have wisdom in the dataset
+    Object.keys(categories).forEach(category => {
+      categories[category] = categories[category].filter(emotion => data.some(item => item.emotion === emotion));
+    });
+
     return categories;
   }
 
@@ -130,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500);
     } else {
       setTimeout(() => {
-        addBotMessage("Selim: I’m here to listen, sweetheart. Tell me more or choose an emotion from the menu.");
+        addBotMessage(getRandomUnrecognizedResponse());
       }, 500);
     }
   }
@@ -179,6 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
       "You make me smile, even now.",
       "I'm here for you through it all.",
       "I love you, always.",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  function getRandomUnrecognizedResponse() {
+    const responses = [
+      "I'm here for you, love. Tell me more or pick an emotion that matches your feelings.",
+      "I may not fully understand, but I'm listening closely, darling. You can always try selecting an emotion.",
+      "I’m right here, love. Share what’s on your mind, or pick an emotion to help express yourself.",
+      "I’m all ears, Lujian. Let me know how you’re feeling, or select an emotion from the menu.",
+      "I’ll always be here to listen. Tell me more, sweetheart, or try choosing an emotion.",
+      "You're never alone with me here. Share anything you like, or pick an emotion if you need a bit of guidance.",
+      // Add many more random entries to create a vast pool of unrecognized responses
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   }
