@@ -98,23 +98,18 @@ header h1 {
   border-radius: 8px;
 }
 
-.bot-message, .user-message {
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  max-width: 80%;
-}
-
 .bot-message {
   background-color: #0055aa;
   color: #e0e0e0;
   align-self: flex-start;
+  margin-right: auto;
 }
 
 .user-message {
   background-color: #555;
   color: #e0e0e0;
   align-self: flex-end;
+  margin-left: auto;
 }
 
 /* Emotion Panel Styling */
@@ -238,4 +233,4 @@ header h1 {
   font-style: italic;
   color: #aaa;
   margin-top: 10px;
-  }
+}
