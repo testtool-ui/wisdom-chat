@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
-      // Filter out emotions without wisdom entries
+      // Filter data to include only emotions with wisdom entries
       data = jsonData.filter(item => item.wisdom);
       displayEmotions();
     })
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const optionsContainer = document.createElement('div');
       optionsContainer.classList.add('emotion-options');
-      optionsContainer.style.display = 'none'; // Initially hidden
+      optionsContainer.style.display = 'none';
 
       emotionCategories[category].forEach(emotion => {
         const button = document.createElement('button');
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         optionsContainer.appendChild(button);
       });
 
-      // Toggle category open/close and ensure only one category is open
       categoryButton.addEventListener('click', () => {
         document.querySelectorAll('.emotion-options').forEach(container => {
           if (container !== optionsContainer) container.style.display = 'none';
@@ -68,18 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function groupEmotions() {
     const categories = {
-      "happiness": ["happy", "joyful", "uplifted", "excited"],
-      "sadness": ["sad", "heartbroken", "lonely"],
-      "calmness": ["peaceful", "serene", "relaxed"],
-      "anxiety": ["anxious", "nervous", "fearful"],
-      "gratitude": ["grateful", "appreciated", "thankful"],
-      "love": ["loved", "appreciated", "caring"],
-      "motivation": ["motivated", "determined"], // "focused" removed due to lack of wisdom
-      "patience": ["patient", "calm"], // "composed" removed
-      "spirituality": ["faithful", "hopeful", "optimistic"],
+      "positive": ["happy", "joyful", "uplifted", "excited", "confident", "content", "fulfilled", "inspired", "peaceful", "proud", "relieved", "trusting"],
+      "negative": ["sad", "heartbroken", "lonely", "angry", "frustrated", "jealous", "disappointed", "betrayed", "guilty", "ashamed", "regretful"],
+      "neutral": ["apathetic", "curious", "surprised", "nostalgic", "tired", "calm", "serene", "relaxed"],
+      "spiritual": ["grateful", "thankful", "hopeful", "faithful", "humble", "repentant", "remorseful", "forgiven", "forgiving", "empathetic"],
+      "challenging": ["anxious", "nervous", "fearful", "overwhelmed", "insecure", "confused", "doubtful", "embarrassed"],
+      "motivational": ["motivated", "determined", "persevering", "patient", "generous", "appreciative"]
     };
 
-    // Only include emotions present in the dataset
+    // Ensure only emotions with wisdom are included
     Object.keys(categories).forEach(category => {
       categories[category] = categories[category].filter(emotion => data.some(item => item.emotion === emotion));
     });
