@@ -1,4 +1,3 @@
-// Wait for the document to fully load
 document.addEventListener('DOMContentLoaded', () => {
   const chatDisplay = document.getElementById('chatDisplay');
   const userInput = document.getElementById('userInput');
@@ -7,40 +6,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menuToggle');
   const emotionPanel = document.getElementById('emotionPanel');
 
-  let data; // Store wisdom data here
+  let data;
 
-  // Load wisdom data from JSON file
   fetch('data.json')
     .then(response => response.json())
     .then(jsonData => {
       data = jsonData;
-      displayEmotions(); // Display emotions once data is loaded
+      displayEmotions();
     })
     .catch(error => console.error('Error loading JSON data:', error));
 
-  // Toggle Emotion Panel
   menuToggle.addEventListener('click', toggleEmotionPanel);
 
-  // Close Emotion Panel by clicking outside
   document.addEventListener('click', (event) => {
     if (!emotionPanel.contains(event.target) && !menuToggle.contains(event.target)) {
       closeEmotionPanel();
     }
   });
 
-  // Toggle the Emotion Panel
   function toggleEmotionPanel() {
     emotionPanel.classList.toggle('emotion-panel-open');
     menuToggle.classList.toggle('open');
   }
 
-  // Close Emotion Panel
   function closeEmotionPanel() {
     emotionPanel.classList.remove('emotion-panel-open');
     menuToggle.classList.remove('open');
   }
 
-  // Display Emotions in Slide-out Panel
   function displayEmotions() {
     const emotionCategories = groupEmotions();
     Object.keys(emotionCategories).forEach(category => {
@@ -59,7 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       categoryButton.addEventListener('click', () => {
-        optionsContainer.style.display = optionsContainer.style.display === 'none' ? 'flex' : 'none';
+        document.querySelectorAll('.emotion-options').forEach(container => container.style.display = 'none');
+        if (optionsContainer.style.display === 'none') {
+          optionsContainer.style.display = 'flex';
+        } else {
+          optionsContainer.style.display = 'none';
+        }
       });
 
       emotionList.appendChild(categoryButton);
@@ -67,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Group emotions by similar categories
   function groupEmotions() {
     const categories = {
       "happiness": ["happy", "joyful", "uplifted", "excited"],
@@ -79,41 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
       "motivation": ["motivated", "determined", "focused"],
       "patience": ["patient", "calm", "composed"],
       "spirituality": ["faithful", "hopeful", "optimistic"],
-      // Expand with more emotions as needed
     };
     return categories;
   }
 
-  // Handle Emotion Selection
   function handleEmotionSelection(emotion) {
-    closeEmotionPanel(); // Close the panel on selection
+    closeEmotionPanel();
     addUserMessage(`I’m feeling ${emotion}...`);
 
-    // Display a loving reply
     setTimeout(() => {
       const lovingResponse = getLovingResponse();
       addBotMessage(`Selim: ${lovingResponse}`);
       showWisdomInChat(emotion);
-    }, 500); // Delay for a natural feel
+    }, 500);
   }
 
-  // Show Random Wisdom in Chat
   function showWisdomInChat(emotion) {
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
     const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
     if (randomWisdom) addBotMessage(`Selim: ${randomWisdom}`);
   }
 
-  // Add Message to Chat Display
   function addBotMessage(message) {
     const botMessage = document.createElement('div');
     botMessage.className = 'bot-message';
     botMessage.innerHTML = `<p>${message}</p>`;
     chatDisplay.appendChild(botMessage);
-    chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to the latest message
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 
-  // Add User's Message
   function addUserMessage(message) {
     const userMessage = document.createElement('div');
     userMessage.className = 'user-message';
@@ -122,13 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 
-  // Process User Input for Emotion Analysis
   function processInput() {
     const inputText = userInput.value.trim().toLowerCase();
     if (!inputText) return;
 
     addUserMessage(inputText);
-    userInput.value = ''; // Clear the input field
+    userInput.value = '';
 
     const detectedEmotions = detectEmotions(inputText);
     if (detectedEmotions.length > 0) {
@@ -137,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         addBotMessage(`Selim: It sounds like you're feeling ${primaryEmotion}, Lujian. ${lovingResponse}`);
         showWisdomInChat(primaryEmotion);
-      }, 500); // Delay for a natural feel
+      }, 500);
     } else {
       setTimeout(() => {
         addBotMessage("Selim: I’m here to listen, sweetheart. Tell me more or choose an emotion from the menu.");
@@ -145,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Detect Emotions from User Input
   function detectEmotions(text) {
     const detected = [];
     data.forEach(item => {
@@ -157,12 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return Array.from(new Set(detected));
   }
 
-  // Simple Closest Match for Spelling Variations
   function closestMatch(text, word) {
     return text.split(" ").some(part => part.startsWith(word.slice(0, 3)));
   }
 
-  // Get Loving and Randomized Response
   function getLovingResponse() {
     const responses = [
       "I'm always here for you.",
@@ -192,15 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
       "You make me smile, even now.",
       "I'm here for you through it all.",
       "I love you, always.",
-      // Add hundreds of additional loving responses to increase randomness
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  // Handle Send Button Click
   sendBtn.addEventListener('click', processInput);
-
-  // Handle Enter Key Press in Input Field
   userInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') processInput();
   });
