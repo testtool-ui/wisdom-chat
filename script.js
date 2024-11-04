@@ -55,8 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       categoryDiv.addEventListener('click', () => {
-        document.querySelectorAll('.emotion-options').forEach(el => el.style.display = 'none');
-        subEmotionDiv.style.display = 'flex';
+        // Close all other open sub-emotions
+        document.querySelectorAll('.emotion-options').forEach(el => {
+          if (el !== subEmotionDiv) el.style.display = 'none';
+        });
+        // Toggle the current category's sub-emotions
+        subEmotionDiv.style.display = subEmotionDiv.style.display === 'flex' ? 'none' : 'flex';
       });
 
       emotionList.appendChild(categoryDiv);
@@ -64,19 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Group emotions by categories
   function groupEmotionsByCategory(data) {
     const categories = {
-      "Positive": ["happy", "grateful", "hopeful", "excited", "motivated"],
-      "Negative": ["sad", "lonely", "anxious", "angry", "frustrated"],
-      "Reflective": ["nostalgic", "curious", "content", "peaceful", "thoughtful"]
+      "Positive": ["happy", "grateful", "hopeful", "excited", "motivated", "joyful"],
+      "Negative": ["sad", "lonely", "anxious", "angry", "frustrated", "heartbroken"],
+      "Reflective": ["nostalgic", "curious", "content", "peaceful", "thoughtful", "inspired"]
     };
+
+    // Ensure all emotions in data are added if not categorized
+    const allEmotions = data.map(item => item.emotion.toLowerCase());
+    const uncategorized = allEmotions.filter(emotion => 
+      !Object.values(categories).flat().includes(emotion)
+    );
+
+    if (uncategorized.length > 0) {
+      categories["Other Emotions"] = uncategorized;
+    }
+
     return categories;
   }
 
   // Show Wisdom in Popup
   function showWisdomPopup(emotion) {
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
-    wisdomText.textContent = wisdoms[Math.floor(Math.random() * wisdoms.length)];
+    const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
+    wisdomText.textContent = randomWisdom;
     wisdomDescription.textContent = getEmotionDescription(emotion);
     wisdomPopup.classList.remove('hidden');
   }
