@@ -6,9 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingScreen = document.getElementById('loadingScreen');
   const menuToggle = document.getElementById('menuToggle');
   const emotionPanel = document.getElementById('emotionPanel');
-  const wisdomPopup = document.getElementById('wisdomPopup');
-  const wisdomText = document.getElementById('wisdomText');
-  const wisdomDescription = document.getElementById('wisdomDescription');
 
   let data;
 
@@ -50,16 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
       emotions.forEach(emotion => {
         const button = document.createElement('button');
         button.textContent = capitalizeFirstLetter(emotion);
-        button.addEventListener('click', () => showWisdomPopup(emotion));
+        button.addEventListener('click', () => showWisdomInChat(emotion));
         subEmotionDiv.appendChild(button);
       });
 
       categoryDiv.addEventListener('click', () => {
-        // Close all other open sub-emotions
         document.querySelectorAll('.emotion-options').forEach(el => {
           if (el !== subEmotionDiv) el.style.display = 'none';
         });
-        // Toggle the current category's sub-emotions
         subEmotionDiv.style.display = subEmotionDiv.style.display === 'flex' ? 'none' : 'flex';
       });
 
@@ -76,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "Reflective": ["nostalgic", "curious", "content", "peaceful", "thoughtful", "inspired"]
     };
 
-    // Ensure all emotions in data are added if not categorized
     const allEmotions = data.map(item => item.emotion.toLowerCase());
     const uncategorized = allEmotions.filter(emotion => 
       !Object.values(categories).flat().includes(emotion)
@@ -89,19 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return categories;
   }
 
-  // Show Wisdom in Popup
-  function showWisdomPopup(emotion) {
+  // Display Wisdom in Chat
+  function showWisdomInChat(emotion) {
     const wisdoms = data.filter(item => item.emotion === emotion).map(item => item.wisdom);
     const randomWisdom = wisdoms[Math.floor(Math.random() * wisdoms.length)];
-    wisdomText.textContent = randomWisdom;
-    wisdomDescription.textContent = getEmotionDescription(emotion);
-    wisdomPopup.classList.remove('hidden');
+    addBotMessage(`Selim: ${randomWisdom}`);
   }
-
-  // Close Wisdom Popup on click outside
-  wisdomPopup.addEventListener('click', () => {
-    wisdomPopup.classList.add('hidden');
-  });
 
   // Add Message to Chat
   function addBotMessage(message) {
@@ -134,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         const lovingMessage = getRandomLovingResponse();
         addBotMessage(`Selim: It sounds like you're feeling ${primaryEmotion}. ${lovingMessage}`);
-        showWisdomPopup(primaryEmotion);
+        showWisdomInChat(primaryEmotion);
       }, 500);
     } else {
       setTimeout(() => {
@@ -160,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return text.split(" ").some(part => part.startsWith(word.slice(0, 3)));
   }
 
-  // Hundreds of Random Loving Responses
+  // Random Loving Responses
   function getRandomLovingResponse() {
     const responses = [
       "You’re amazing, Lujian.",
@@ -192,20 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return reassurances[Math.floor(Math.random() * reassurances.length)];
   }
 
-  // Add Description for Wisdom Pop-up
-  function getEmotionDescription(emotion) {
-    const descriptions = {
-      "happy": "I'm so glad to hear that you're feeling happy! Happiness is a blessing to cherish.",
-      "sad": "I'm here for you. It's okay to feel sad sometimes. Just know you're not alone.",
-      "anxious": "Take a deep breath, Lujian. You’re stronger than you know.",
-      "grateful": "Gratitude brings peace to the heart. Let’s count our blessings together.",
-      "hopeful": "Stay hopeful, love. Your positivity shines brightly.",
-      // Add more descriptions for each emotion
-    };
-    return descriptions[emotion] || "Remember, I'm here for you no matter what you're feeling.";
-  }
-
-  // Utility to capitalize the first letter
+  // Capitalize first letter utility
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
